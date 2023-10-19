@@ -1,0 +1,12 @@
+ List<SelectListItem> EmployeData = new List<SelectListItem>();
+                EmployeData.Add(new SelectListItem
+                {
+                    Text = "All",
+                    Value = "All",
+                });
+
+                EmployeData.AddRange(db.tbl_Employee.Select(d => new SelectListItem
+                {
+                    Text = d.Name,
+                    Value = d.UserId.ToString()
+                }).OrderBy(d => d.Text));
